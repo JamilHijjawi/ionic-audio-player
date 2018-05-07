@@ -1,0 +1,11 @@
+<div class="audio-player">
+    <button ion-button icon-only (click)="control()">
+          <ion-icon *ngIf="!isPlaying"  name="play"></ion-icon>
+          <ion-icon *ngIf="isPlaying"  name="pause"></ion-icon>
+        </button>
+    <ion-range [(ngModel)]="track" (ionChange)="seekTo($event)" [disabled]="trackDisabled"></ion-range>
+    <button ion-button icon-only>
+          <ion-icon name="microphone"></ion-icon>
+        </button>
+    <span class="time">{{time}}</span>
+</div>
