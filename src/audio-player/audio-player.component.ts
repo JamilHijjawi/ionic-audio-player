@@ -55,10 +55,10 @@ export class AudioPlayerComponent {
         this.sound.ontimeupdate = e => {
             this.setTime(Math.floor(this.duration - this.getCurrentTime()));
             this.track = Math.floor(this.getCurrentTime() / this.duration * 100);
-            //if (device.platform == 'iOS') {
             // to handle the UI update on iOS
-            //this._ngZone.run(() => { });
-            //}
+            if (device.platform == 'iOS') {
+                this._ngZone.run(() => { });
+            }
             console.log(this.track);
             if (this.getCurrentTime() == this.duration) {
                 this.killSound();
